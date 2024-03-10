@@ -13,7 +13,7 @@ const DeferredContinuousPV = () => {
     const [message, setMessage] = useState("")
 
     const calculateDefContAnnPV = () => {
-        const numberRegex: RegExp = /^[0-9]+\.[0-9]+$/g
+        const numberRegex: RegExp = /\d+(\.\d+)?/g
         if (!(numberRegex.test(String(i)) && numberRegex.test(String(n)) && numberRegex.test(String(q)))) {
             setMessage("either i, n or q is not a number")
             return

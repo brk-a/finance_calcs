@@ -12,7 +12,7 @@ const DuePV = () => {
     const [message, setMessage] = useState("")
 
     const calculateAnnDuePV = () => {
-        const numberRegex: RegExp = /^[0-9]+\.[0-9]+$/g
+        const numberRegex: RegExp = /\d+(\.\d+)?/g
         if (!(numberRegex.test(String(i)) && numberRegex.test(String(n)))) {
             setMessage("either i or n is not a number")
             return

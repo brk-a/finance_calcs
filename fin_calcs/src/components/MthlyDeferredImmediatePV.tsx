@@ -14,7 +14,7 @@ const MthlyDeferredImmediatePV = () => {
     const [message, setMessage] = useState("")
 
     const calculateMthlyDefAnnImmPV = () => {
-        const numberRegex: RegExp = /^[0-9]+\.[0-9]+$/g
+        const numberRegex: RegExp = /\d+(\.\d+)?/g
         if (!(numberRegex.test(String(i)) && numberRegex.test(String(n)) && numberRegex.test(String(m)) && numberRegex.test(String(q)))) {
             setMessage("either i, n, m or q is not a number")
             return

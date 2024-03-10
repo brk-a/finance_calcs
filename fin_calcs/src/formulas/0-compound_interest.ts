@@ -15,7 +15,7 @@ export const discountFactor = (i: number, n: number): number => {
 }
 
 export const d = (i: number) : number => {
-    return i / (1+i)
+    return (i/100) / (1+(i/100))
 }
 
 export const iMthly = (i: number, m: number): number => {
@@ -29,17 +29,17 @@ export const dMthly = (i: number, m: number): number => {
 }
 
 export const forceOfInterest = (i: number): number => {
-    return Math.log(1+i)
+    return Math.log(1+(i/100))
 }
 
 export const annuityDuePV = (i: number, n: number): number => {
     const annImmPV = annuityImmediatePV(i, n)
-    return (1+i) * annImmPV
+    return (1+(i/100)) * annImmPV
 }
 
 export const annuityDueFV = (i: number, n: number): number => {
     const annImmFV = annuityImmediateFV(i, n)
-    return (1+i) * annImmFV
+    return (1+(i/100)) * annImmFV
 }
 
 export const mthlyAnnuityDuePV = (i: number, m: number, n: number): number => {
@@ -55,29 +55,29 @@ export const mthlyAnnuityDueFV = (i: number, m: number, n: number): number => {
 }
 
 export const annuityImmediatePV = (i: number, n: number): number => {
-    const v = discountFactor(i, n)
-    return (1-v) / i
+    const vN = discountFactor(i, n)
+    return (1-vN) / (i/100)
 }
 
 export const annuityImmediateFV = (i: number, n: number): number => {
     const cpdFactor = compoundFactor(i, n)
-    return (cpdFactor - 1) / i
+    return (cpdFactor - 1) / (i/100)
 }
 
 export const mthlyAnnuityImmediateFV = (i: number, m: number, n: number): number => {
     const annImmFV = annuityImmediateFV(i, n)
     const iM = iMthly(i, m)
-    return (i / iM) * annImmFV
+    return ((1/100) / iM) * annImmFV
 }
 
 export const mthlyAnnuityImmediatePV = (i: number, m: number, n: number): number => {
     const annImmPV = annuityImmediatePV(i, n)
     const iM = iMthly(i, m)
-    return (i / iM) * annImmPV
+    return ((i/100) / iM) * annImmPV
 }
 
 export const perpetuityImmediatePV = (i: number) : number => {
-    return 1 / i
+    return 1 / (i/100)
 }
 
 export const perpetuityDuePV = (i: number) : number => {
@@ -112,7 +112,7 @@ export const mthlyDeferredAnnuityDuePV = (i: number, m: number, n: number, q: nu
 export const continuousAnnuityPV = (i: number, n: number): number => {
     const force = forceOfInterest(i)
     const annImmPV = annuityImmediatePV(i, n)
-    return (i/force) * annImmPV
+    return ((i/100)/force) * annImmPV
 }
 
 export const deferredContinuousAnnuityPV = (i: number, n: number, q: number): number => {
@@ -124,5 +124,5 @@ export const deferredContinuousAnnuityPV = (i: number, n: number, q: number): nu
 export const continuousAnnuityFV = (i: number, n: number): number => {
     const force = forceOfInterest(i)
     const annImmFV = annuityImmediateFV(i, n)
-    return (i/force) * annImmFV
+    return ((i/100)/force) * annImmFV
 }

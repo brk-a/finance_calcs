@@ -12,7 +12,7 @@ const DeferredImmediatePV = () => {
     const [message, setMessage] = useState("")
 
     const calculateDefAnnImmPV = () => {
-        const numberRegex: RegExp = /^[0-9]+\.[0-9]+$/g
+        const numberRegex: RegExp = /\d+(\.\d+)?/g
         if (!(numberRegex.test(String(i)) && numberRegex.test(String(n)) && numberRegex.test(String(m)))) {
             setMessage("either i, n or m is not a number")
             return

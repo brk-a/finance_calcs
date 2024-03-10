@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import Link from "next/link"
 import logo from "../assets/images/giraffe.jpg"
+import React from "react"
 
 const Navbar = () => {
     const [dropDownOpen, setdropDownOpen] = useState(false)

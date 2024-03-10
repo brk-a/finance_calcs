@@ -11,7 +11,7 @@ const PerpetuityDuePV = () => {
     const [message, setMessage] = useState("")
 
     const calculatePerpDuePV = () => {
-        const numberRegex: RegExp = /^[0-9]+\.[0-9]+$/g
+        const numberRegex: RegExp = /\d+(\.\d+)?/g
         if (!(numberRegex.test(String(i)))) {
             setMessage("i is not a number")
             return
