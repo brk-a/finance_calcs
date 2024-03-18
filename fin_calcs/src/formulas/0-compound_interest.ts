@@ -1,9 +1,9 @@
 export const compound = (p: number, i: number, n: number): number => {
-    return p * Math.pow(1 + (i/100), n)
+    return p * Math.pow((1 + (i/100)), n)
 }
 
 export const discount = (p: number, i: number, n: number): number => {
-    return p * Math.pow(1 + (i/100), -n)
+    return p * Math.pow((1 + (i/100)), -n)
 }
 
 export const compoundFactor = (i: number, n: number): number => {
